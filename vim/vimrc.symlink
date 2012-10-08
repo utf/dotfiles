@@ -1,0 +1,138 @@
+set tabstop=4
+set shiftwidth=2
+set softtabstop=2
+set backspace=indent,eol,start
+set expandtab
+set autoindent
+set smartindent
+set smarttab
+
+" Misc
+set number
+set ruler
+set showcmd
+set showmatch
+set wildmenu
+set wildmode=list,full
+set nowrap
+set hidden
+set modeline
+set autoread       " auto-reload modified files (with no local changes)
+set nocompatible   " don't try to be compatible with vi
+set ignorecase     " ignore case in search
+set smartcase      " override ignorecase if uppercase is used in search string
+set report=0       " report all changes
+set laststatus=2   " always show status-line
+set nocursorline   " highlight current line
+set scrolloff=4
+set nofoldenable
+set timeoutlen=200 " set timeout between key sequences
+set encoding=utf-8
+
+" set background=dark"
+set background=dark
+
+" Keep swap files in one of these
+set directory=~/tmp,/var/tmp,/tmp,.
+
+
+" Per file-type indentation
+autocmd BufEnter *.js  set softtabstop=4|set shiftwidth=4
+autocmd BufEnter *.c   set shiftwidth=4|set noexpandtab
+autocmd BufEnter *.h   set shiftwidth=4|set noexpandtab
+
+" Better search
+set hlsearch
+set incsearch
+
+
+" File-type
+filetype on
+filetype plugin on
+filetype indent on
+
+" Show trailing white-space
+let ruby_space_errors = 1
+let c_space_errors = 1
+let javascript_space_errors = 1
+set list listchars=trail:.
+
+" Easy command mode switch
+inoremap jk <Esc>
+
+
+inoremap () ()<Left>
+inoremap [] []<Left>
+inoremap '' ''<Left>
+inoremap "" ""<Left>
+
+inoremap <C-l> <C-x><C-l>
+
+inoremap <C-f> function () {}<Left>
+
+" <Ctrl-l> redraws the screen and removes any search highlighting.
+nnoremap <silent> <C-h> :nohl<CR><C-l>
+
+" Enable mouse in insert and normal mode
+set mouse=vin
+
+" Create an empty line underneath without moving the cursor
+noremap <CR> mlo<Esc>`l
+
+" Indent with spacebar
+noremap <space> >>
+
+" Move easily between ^ and $
+noremap <C-h> ^
+noremap <C-l> $
+noremap j gj
+noremap k gk
+
+" Syntax coloring
+set t_Co=256
+colorscheme solarized
+syntax enable
+
+
+function! CleverTab()
+   if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
+      return "\<Tab>"
+   else
+      return "\<C-N>"
+
+endfunction
+inoremap <Tab> <C-R>=CleverTab()<CR>
+
+" Highlight jquery better
+au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
+
+" Work with better ragtag bindings
+let g:ragtag_global_maps = 1
+
+" Auto close html tags
+imap </ <C-x>/
+let mapleader = ','
+
+"Vundle
+set nocompatible               " be iMproved
+filetype off                   " required!
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+" let Vundle manage Vundle
+" required!
+Bundle 'gmarik/vundle'
+" My Bundles here:
+" original repos on github
+Bundle 'tpope/vim-rails.git'
+Bundle 'tpope/vim-ragtag'
+Bundle 'wincent/Command-T'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'tpope/vim-surround'
+Bundle 'Lokaltog/vim-powerline'
+
+" vim-scripts repos
+Bundle 'rubycomplete.vim'
+" non github repos
+filetype plugin indent on     " required!
+
+" BundleInstall(!)    - install(update) bundles)

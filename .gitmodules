@@ -1,0 +1,6 @@
+[submodule "vim/vim.symlink/bundle/Command-T"]
+	path = vim/vim.symlink/bundle/Command-T
+	url = git@github.com:wincent/Command-T
+[submodule "vim/vim.symlink/bundle/vim-ragtag"]
+	path = vim/vim.symlink/bundle/vim-ragtag
+	url = git@github.com:tpope/vim-ragtag

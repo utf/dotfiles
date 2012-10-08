@@ -1,0 +1,3 @@
+export PATH=/Users/alexganose/.rvm/gems/ruby-1.9.3-p194/bin:/Users/alexganose/.rvm/gems/ruby-1.9.3-p194@global/bin:/Users/alexganose/.rvm/rubies/ruby-1.9.3-p194/bin:/Users/alexganose/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/alexganose/.rvm/gems/ruby-1.9.3-p194/bin:/Users/alexganose/.rvm/gems/ruby-1.9.3-p194@global/bin:/Users/alexganose/.rvm/rubies/ruby-1.9.3-p194/bin:/Users/alexganose/.rvm/bin
+
+export PATH="./bin:$PATH"

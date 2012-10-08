@@ -1,0 +1,17 @@
+[hub]
+    protocol = ssh
+[user]
+	name = Alex Ganose
+	email = alexganose@googlemail.com
+[alias]
+	co = checkout
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+    ui = true
+[core]
+    excludesfile = ~/.gitignore
+    editor = vim -f
+[help]
+    autocorrect = 1
