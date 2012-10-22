@@ -137,3 +137,6 @@ Bundle 'rubycomplete.vim'
 filetype plugin indent on     " required!
 
 " BundleInstall(!)    - install(update) bundles)
+
+" Open current file in safari from vim
+:map <Leader>p :!open -a Safari %<CR><CR>
