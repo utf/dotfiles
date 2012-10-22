@@ -1,6 +1,5 @@
 # shortcut to this dotfiles path is $ZSH
 export ZSH=$HOME/.dotfiles
-
 # ZSH_THEME="agnoster"
 DEFAULT_USER="alexganose"
 export GREP_OPTIONS='--color=auto'

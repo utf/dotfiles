@@ -4,3 +4,6 @@
 [submodule "vim/vim.symlink/bundle/vim-ragtag"]
 	path = vim/vim.symlink/bundle/vim-ragtag
 	url = git@github.com:tpope/vim-ragtag
+[submodule "vim/vim.symlink/bundle/vundle"]
+	path = vim/vim.symlink/bundle/vundle
+	url = git@github.com:gmarik/vundle

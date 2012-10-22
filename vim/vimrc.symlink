@@ -1,4 +1,4 @@
-set tabstop=4
+set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set backspace=indent,eol,start
@@ -14,7 +14,7 @@ set showcmd
 set showmatch
 set wildmenu
 set wildmode=list,full
-set nowrap
+set wrap
 set hidden
 set modeline
 set autoread       " auto-reload modified files (with no local changes)
@@ -110,7 +110,7 @@ au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 let g:ragtag_global_maps = 1
 
 " Auto close html tags
-imap </ <C-x>/
+"imap </ <C-x>/
 let mapleader = ','
 
 "Vundle
@@ -125,6 +125,7 @@ Bundle 'gmarik/vundle'
 " original repos on github
 Bundle 'tpope/vim-rails.git'
 Bundle 'tpope/vim-ragtag'
+Bundle 'tpope/vim-haml'
 Bundle 'wincent/Command-T'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'tpope/vim-surround'
