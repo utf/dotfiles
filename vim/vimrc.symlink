@@ -126,6 +126,7 @@ Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-rails.git'
 Bundle 'tpope/vim-ragtag'
 Bundle 'tpope/vim-haml'
+Bundle 'tpope/vim-rails'
 Bundle 'wincent/Command-T'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'tpope/vim-surround'
@@ -140,3 +141,8 @@ filetype plugin indent on     " required!
 
 " Open current file in safari from vim
 :map <Leader>p :!open -a Safari %<CR><CR>
+inoremap <leader>; <C-o>A;<C-o>o
+inoremap <leader><Return> <C-o>o
+
+" Auto indent when starting new line if starting within brackets
+imap <C-Return> <CR><CR><C-o>k<Tab>
