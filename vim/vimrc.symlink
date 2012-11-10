@@ -127,10 +127,10 @@ Bundle 'tpope/vim-rails.git'
 Bundle 'tpope/vim-ragtag'
 Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-rails'
-Bundle 'wincent/Command-T'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'tpope/vim-surround'
 Bundle 'Lokaltog/vim-powerline'
+Bundle 'skwp/vim-rspec'
 
 " vim-scripts repos
 Bundle 'rubycomplete.vim'
