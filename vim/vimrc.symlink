@@ -1,3 +1,29 @@
+"Vundle
+set nocompatible               " be iMproved
+filetype off                   " required!
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+" let Vundle manage Vundle
+" required!
+Bundle 'gmarik/vundle'
+" My Bundles here:
+" original repos on github
+Bundle 'tpope/vim-rails.git'
+Bundle 'tpope/vim-ragtag'
+Bundle 'tpope/vim-haml'
+Bundle 'tpope/vim-rails'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'tpope/vim-surround'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'skwp/vim-rspec'
+Bundle 'StanAngeloff/php.vim'
+
+" vim-scripts repos
+Bundle 'rubycomplete.vim'
+" non github repos
+
+" BundleInstall(!)    - install(update) bundles)
+
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
@@ -38,8 +64,8 @@ set directory=~/tmp,/var/tmp,/tmp,.
 
 " Per file-type indentation
 autocmd BufEnter *.js  set softtabstop=4|set shiftwidth=4
-autocmd BufEnter *.c   set shiftwidth=4|set noexpandtab
-autocmd BufEnter *.h   set shiftwidth=4|set noexpandtab
+autocmd BufEnter *.c   set shiftwidth=4|set expandtab|set cindent
+autocmd BufEnter *.h   set shiftwidth=4|set expandtab
 
 " Better search
 set hlsearch
@@ -59,7 +85,6 @@ set list listchars=trail:.
 
 " Easy command mode switch
 inoremap jk <Esc>
-
 
 inoremap () ()<Left>
 inoremap [] []<Left>
@@ -90,8 +115,15 @@ noremap k gk
 
 " Syntax coloring
 set t_Co=256
-colorscheme solarized
 syntax enable
+
+set background=dark
+" solarized options 
+
+" Solarized stuff
+let g:solarized_termtrans = 1
+set background=dark
+colorscheme solarized
 
 
 function! CleverTab()
@@ -113,34 +145,8 @@ let g:ragtag_global_maps = 1
 "imap </ <C-x>/
 let mapleader = ','
 
-"Vundle
-set nocompatible               " be iMproved
-filetype off                   " required!
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-" let Vundle manage Vundle
-" required!
-Bundle 'gmarik/vundle'
-" My Bundles here:
-" original repos on github
-Bundle 'tpope/vim-rails.git'
-Bundle 'tpope/vim-ragtag'
-Bundle 'tpope/vim-haml'
-Bundle 'tpope/vim-rails'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'tpope/vim-surround'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'skwp/vim-rspec'
-
-" vim-scripts repos
-Bundle 'rubycomplete.vim'
-" non github repos
-filetype plugin indent on     " required!
-
-" BundleInstall(!)    - install(update) bundles)
-
 " Open current file in safari from vim
-:map <Leader>p :!open -a Safari %<CR><CR>
+:map <Leader>o :!open -a Safari %<CR><CR>
 inoremap <leader>; <C-o>A;<C-o>o
 inoremap <leader><Return> <C-o>o
 
@@ -153,3 +159,7 @@ noremap <leader>yy "*Y
 
 " Preserve indentation while pasting text from the OS X clipboard
 noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
+filetype plugin indent on     " required!
+filetype on
+filetype plugin on
+filetype indent on
