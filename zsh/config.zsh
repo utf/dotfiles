@@ -1,4 +1,4 @@
-export LSCOLORS="exfxcxdxbxegedabagacad"
+eval `dircolors .dircolors`
 export CLICOLOR=true
 
 HISTFILE=~/.zsh_history
