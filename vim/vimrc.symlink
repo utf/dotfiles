@@ -13,7 +13,6 @@ Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-rails'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'tpope/vim-surround'
-Bundle 'Lokaltog/vim-powerline'
 Bundle 'skwp/vim-rspec'
 Bundle 'StanAngeloff/php.vim'
 

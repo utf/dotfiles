@@ -1,1 +1,3 @@
-source `brew --prefix`/etc/grc.bashrc
+if [[ -x "$(which grc)" ]]; then
+  source `brew --prefix`/etc/grc.bashrc
+fi

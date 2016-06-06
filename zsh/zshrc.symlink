@@ -1,12 +1,13 @@
 # shortcut to this dotfiles path is $ZSH
 export ZSH=$HOME/.dotfiles
-# ZSH_THEME="agnoster"
-DEFAULT_USER="alexganose"
+
+DEFAULT_USER="alex"
 export GREP_OPTIONS='--color=auto'
+export LS_OPTIONS='--color=auto'
 export CLICOLOR=true
 
 # your project folder that we can `c [tab]` to
-export PROJECTS=~/Dev
+export PROJECTS=~/dev
 
 # source every .zsh file in this rep
 for config_file ($ZSH/**/*.zsh) source $config_file
