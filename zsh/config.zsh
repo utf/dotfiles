@@ -1,4 +1,4 @@
-eval `dircolors .dircolors`
+eval `dircolors ${HOME}/.dircolors`
 export CLICOLOR=true
 
 HISTFILE=~/.zsh_history
