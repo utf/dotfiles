@@ -1,16 +1,16 @@
-# shortcut to this dotfiles path is $ZSH
-export ZSH=$HOME/.dotfiles
+export DPATH=$HOME/.dotfiles
 
 DEFAULT_USER="alex"
 export GREP_OPTIONS='--color=auto'
 export LS_OPTIONS='--color=auto'
 export CLICOLOR=true
+export EDITOR='vim'
 
 # your project folder that we can `c [tab]` to
 export PROJECTS=~/dev
 
 # source every .zsh file in this rep
-for config_file ($ZSH/**/*.zsh) source $config_file
+for config_file in "$DPATH/**/*.sh"; do source $config_file; done
 
 # use .localrc for SUPER SECRET CRAP that you don't
 # want in your public, versioned repo.
@@ -19,9 +19,9 @@ then
   source ~/.localrc
 fi
 
-# initialize autocomplete here, otherwise functions won't be loaded
-autoload -U compinit
-compinit
+# initialize autocomplete here
+if [ -f /etc/bash_completion ]; then
+ . /etc/bash_completion
+fi
 
-# load every completion after autocomplete loads
-for config_file ($ZSH/**/completion.zsh) source $config_file
+export PS1="$USER in \w $ "
