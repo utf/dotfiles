@@ -14,6 +14,9 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'tpope/vim-surround'
 Bundle 'skwp/vim-rspec'
 Bundle 'StanAngeloff/php.vim'
+Plugin 'vim-scripts/indentpython.vim'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'nvie/vim-flake8'
 
 " vim-scripts repos
 Bundle 'rubycomplete.vim'
@@ -162,3 +165,14 @@ filetype plugin indent on     " required!
 filetype on
 filetype plugin on
 filetype indent on
+
+" Python syntax highlighting and formatting
+let python_highlight_all=1
+au BufNewFile,BufRead *.py
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set textwidth=79 |
+    \ set expandtab |
+    \ set autoindent |
+    \ set fileformat=unix |
