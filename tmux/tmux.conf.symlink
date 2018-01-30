@@ -1,5 +1,6 @@
-set -g default-command "reattach-to-user-namespace -l bash"
+set -g default-command "bash"
 
+if-shell 'test "${platform}" = "freebsd"' 'source ${DPATH}/tmux/.tmux-osx.conf'
 set -g mouse on
 
 # Copy mode
@@ -11,7 +12,6 @@ bind p paste-buffer
 bind -T copy-mode-vi v send-keys -X begin-selection
 bind -T copy-mode-vi y send-keys -X copy-selection
 bind -T copy-mode-vi Escape send-keys -X cancel
-bind y run "tmux save-buffer - | reattach-to-user-namespace pbcopy"
 
 # remap prefix to Control + a
 set -g prefix C-a
