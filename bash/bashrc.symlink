@@ -8,8 +8,8 @@ unamestr=$(uname)
 case $(uname) in
   "Linux")
     platform="linux";;
-  "FreeBSD")
-    platform="freebsd";;
+  "Darwin")
+    platform="osx";;
 esac
 
 case $(hostname) in

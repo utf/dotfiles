@@ -7,7 +7,7 @@ alias ABORT='echo "LABORT = .TRUE." > STOPCAR'
 
 if [[ "${platform}" == 'linux' ]]; then
   alias ls='ls --color'
-elif [[ "${platform}" == 'freebsd' ]]; then
+elif [[ "${platform}" == 'osx' ]]; then
   alias ls='ls -G'
 fi
 
