@@ -24,4 +24,4 @@ if [ -f /etc/bash_completion ]; then
  . /etc/bash_completion
 fi
 
-export PS1="$USER in \w $ "
+export PS1="$COMPNAME in \w $ "

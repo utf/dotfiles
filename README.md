@@ -24,3 +24,9 @@ rake
 ```
 
 To install all `vim` plugins, open vim, then type: `:VundleInstall`
+
+Lastly, add the following to your ~/.localrc to configure the prompt:
+
+```
+COMPNAME=server_name
+```

@@ -17,6 +17,7 @@ Bundle 'StanAngeloff/php.vim'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'nvie/vim-flake8'
+Bundle 'python-mode/python-mode'
 
 " vim-scripts repos
 Bundle 'rubycomplete.vim'
