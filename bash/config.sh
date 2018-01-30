@@ -1,4 +1,3 @@
-eval `dircolors ${HOME}/.dircolors`
 export CLICOLOR=true
 export GREP_OPTIONS='--color=auto'
 export EDITOR='vim'
@@ -11,9 +10,20 @@ HISTCONTROL=ignoreboth
 HISTSIZE=10000
 SAVEHIST=10000
 
-shopt -s histverify
-shopt -s autocd
+if [[ -x "$(which dircolors 2> /dev/null)" ]]; then
+  eval `dircolors ${HOME}/.dircolors`
+elif [[ -x "$(which gdircolors 2> /dev/null)" ]]; then
+  eval `gdircolors ${HOME}/.dircolors`
+fi
 
+if [[ "${platform}" == "linux" ]]; then
+  shopt -s autocd
+  # If set, the pattern "**" used in a pathname expansion context will
+  # match all files and zero or more directories and subdirectories.
+  shopt -s globstar
+fi
+
+shopt -s histverify
 shopt -s histappend # adds history
 
 # don't expand aliases _before_ completion has finished
@@ -23,10 +33,6 @@ shopt -s expand_aliases
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
-
-# If set, the pattern "**" used in a pathname expansion context will
-# match all files and zero or more directories and subdirectories.
-shopt -s globstar
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"

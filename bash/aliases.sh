@@ -20,7 +20,7 @@ fi
 if [[ "${cluster}" == "ucl" ]]; then
   alias qsta="qstat -u '*'"
 
-  if [[ -z $COMPNAME ]];
+  if [[ -z $COMPNAME ]]; then
     echo "Variable COMPNAME not set in ~/.localrc"
     echo "backup utility will not work"
   else
