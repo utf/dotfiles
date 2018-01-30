@@ -1,22 +1,16 @@
-export DPATH=$HOME/.dotfiles
-
-DEFAULT_USER="alex"
-export GREP_OPTIONS='--color=auto'
-export LS_OPTIONS='--color=auto'
-export CLICOLOR=true
-export EDITOR='vim'
+export DPATH="${HOME}/.dotfiles"
 
 # your project folder that we can `c [tab]` to
-export PROJECTS=~/dev
+export PROJECTS="${HOME}/dev"
 
 # source every .zsh file in this rep
-for config_file in "$DPATH/**/*.sh"; do source $config_file; done
+for config_file in "$DPATH/**/*.sh"; do source "${config_file}"; done
 
 # use .localrc for SUPER SECRET CRAP that you don't
 # want in your public, versioned repo.
-if [[ -a ~/.localrc ]]
+if [[ -a "${HOME}/.localrc" ]]
 then
-  source ~/.localrc
+  source "${HOME}/.localrc"
 fi
 
 # initialize autocomplete here
