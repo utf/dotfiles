@@ -1,10 +1,11 @@
 [hub]
     protocol = ssh
 [user]
-	name = Alex Ganose
-	email = alexganose@googlemail.com
+  name = Alex Ganose
+  email = alexganose@googlemail.com
 [alias]
-	co = checkout
+  co = checkout
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit --all --color
 [color]
     diff = auto
     status = auto
