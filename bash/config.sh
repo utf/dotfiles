@@ -1,7 +1,6 @@
 eval `dircolors ${HOME}/.dircolors`
 export CLICOLOR=true
 export GREP_OPTIONS='--color=auto'
-export LS_OPTIONS='--color=auto'
 export EDITOR='vim'
 
 # don't put duplicate lines or lines starting with space in the history.
@@ -13,7 +12,7 @@ HISTSIZE=10000
 SAVEHIST=10000
 
 shopt -s histverify
-shopt -s autcd
+shopt -s autocd
 
 shopt -s histappend # adds history
 

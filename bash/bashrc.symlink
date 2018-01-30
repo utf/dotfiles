@@ -3,19 +3,38 @@ export DPATH="${HOME}/.dotfiles"
 # your project folder that we can `c [tab]` to
 export PROJECTS="${HOME}/dev"
 
-# source every .zsh file in this rep
-for config_file in "$DPATH/**/*.sh"; do source "${config_file}"; done
+platform="unknown"
+unamestr=$(uname)
+case $(uname) in
+  "Linux")
+    platform="linux";;
+  "FreeBSD")
+    platform="freebsd";;
+esac
+
+case $(hostname) in
+  mbp)
+    cluster="mbp";;
+  eslogin0*)
+    cluster="archer";;
+  login0*)
+    cluster="ucl";;
+  donut)
+    cluster="donut";;
+  *)
+    cluster="unknown";;
+esac
 
 # use .localrc for SUPER SECRET CRAP that you don't
 # want in your public, versioned repo.
-if [[ -a "${HOME}/.localrc" ]]
-then
+if [[ -a "${HOME}/.localrc" ]]; then
   source "${HOME}/.localrc"
 fi
+
+# source every .zsh file in this rep
+for config_file in "${DPATH}"/*/*.sh; do source "${config_file}"; done
 
 # initialize autocomplete here
 if [ -f /etc/bash_completion ]; then
  . /etc/bash_completion
 fi
-
-export PS1="$COMPNAME in \w $ "
