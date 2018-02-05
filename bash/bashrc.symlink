@@ -8,16 +8,17 @@ unamestr=$(uname)
 case $(uname) in
   "Linux")
     platform="linux";;
-  "FreeBSD")
-    platform="freebsd";;
+  "Darwin")
+    platform="osx";;
 esac
 
+# select cluster type; has to work for both login and compute nodes
 case $(hostname) in
   mbp)
     cluster="mbp";;
-  eslogin0*)
+  eslogin0*|archer*)
     cluster="archer";;
-  login0*)
+  login0*|node-*)
     cluster="ucl";;
   donut)
     cluster="donut";;
