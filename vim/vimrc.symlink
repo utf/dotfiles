@@ -14,9 +14,13 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'tpope/vim-surround'
 Bundle 'skwp/vim-rspec'
 Bundle 'StanAngeloff/php.vim'
-Plugin 'vim-scripts/indentpython.vim'
 Plugin 'vim-syntastic/syntastic'
-Plugin 'nvie/vim-flake8'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+
+" Python specific packages
+Plugin 'vim-scripts/indentpython.vim'
+Plugin 'vim-python/python-syntax'
 
 if has("unix")
   let s:uname = system("echo -n \"$(uname)\"")
@@ -28,7 +32,6 @@ endif
 " vim-scripts repos
 Bundle 'rubycomplete.vim'
 Bundle 'std_c.zip'
-Bundle 'ctrlp.vim'
 
 " non github repos
 " BundleInstall(!)    - install(update) bundles)
@@ -127,7 +130,7 @@ set t_Co=256
 syntax enable
 
 set background=dark
-" solarized options 
+" solarized options
 
 " Solarized stuff
 let g:solarized_termtrans = 1
@@ -173,6 +176,18 @@ filetype on
 filetype plugin on
 filetype indent on
 
+" Removes trailing spaces
+function TrimWhiteSpace()
+  %s/\s*$//
+  ''
+endfunction
+
+set list listchars=trail:.,extends:>
+autocmd FileWritePre * call TrimWhiteSpace()
+autocmd FileAppendPre * call TrimWhiteSpace()
+autocmd FilterWritePre * call TrimWhiteSpace()
+autocmd BufWritePre * call TrimWhiteSpace()
+
 " Python syntax highlighting and formatting
 let python_highlight_all=1
 au BufNewFile,BufRead *.py
@@ -183,3 +198,14 @@ au BufNewFile,BufRead *.py
     \ set expandtab |
     \ set autoindent |
     \ set fileformat=unix |
+let g:python_highlight_all = 1
+
+" Syntastic settings (requires Flake8 for python)
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 1

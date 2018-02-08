@@ -28,3 +28,11 @@ Lastly, add the following to your ~/.localrc to configure the prompt (and the ba
 ```
 COMPNAME=server_name
 ```
+
+Requirements
+------------
+
+```
+tmux 2.6+
+flake8 (install by pip)
+```
