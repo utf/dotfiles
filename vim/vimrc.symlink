@@ -15,17 +15,25 @@ Bundle 'tpope/vim-surround'
 Bundle 'skwp/vim-rspec'
 Bundle 'StanAngeloff/php.vim'
 Plugin 'vim-syntastic/syntastic'
-Plugin 'davidhalter/jedi-vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 
 " Python specific packages
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'vim-python/python-syntax'
 
+" OSX only plugins
 if has("unix")
   let s:uname = system("echo -n \"$(uname)\"")
   if !v:shell_error && s:uname == "Darwin"
     Bundle 'python-mode/python-mode'
+  endif
+endif
+
+" Don't install jedi-vim on UCL clusters
+if has("unix")
+  let s:uname = system("echo -n ${cluster}")
+  if !v:shell_error && s:uname != "ucl"
+    Plugin 'davidhalter/jedi-vim'
   endif
 endif
 

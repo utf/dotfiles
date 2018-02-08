@@ -3,7 +3,7 @@ if [[ "${cluster}" == "mbp" ]]; then
   export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
 elif [[ "${cluster}" == "ucl" ]]; then
   export PATH="${HOME}/bin/tools:${HOME}/src/vaspup/bin:${PATH}"
-  export PYTHONPATH=${HOME}/src/sauce:${PYTHONPATH}
+  export PYTHONPATH="${HOME}/src/sauce:${PYTHONPATH}"
   export VASP_PP_PATH="${HOME}/src/potentials/ase"
   export VASP_SCRIPT="${HOME}/src/sauce/scripts/run-vasp.py"
 
