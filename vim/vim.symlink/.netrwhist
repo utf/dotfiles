@@ -1,6 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_cnt =8
 let g:netrw_dirhist_1='/home/alex/.dotfiles'
 let g:netrw_dirhist_2='/home/alex/.dotfiles/zsh'
 let g:netrw_dirhist_3='/home/alex/.dotfiles/bash'
 let g:netrw_dirhist_4='/Users/alex/.dotfiles/git'
+let g:netrw_dirhist_5='/Users/alex/dev/vaspy/vaspy'
+let g:netrw_dirhist_6='/Users/alex/dev/vaspy'
+let g:netrw_dirhist_7='/Users/alex/dev/vaspy/docs/source'
+let g:netrw_dirhist_8='/Users/alex/dev/vaspy/vaspy/symmetry'

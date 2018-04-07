@@ -21,13 +21,14 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'vim-python/python-syntax'
 
-" OSX only plugins
-if has("unix")
-  let s:uname = system("echo -n \"$(uname)\"")
-  if !v:shell_error && s:uname == "Darwin"
-    Bundle 'python-mode/python-mode'
-  endif
-endif
+" OSX only plugins (commenting this out for now as editing large functions is
+" incredibly slow)
+" if has("unix")
+"   let s:uname = system("echo -n \"$(uname)\"")
+"   if !v:shell_error && s:uname == "Darwin"
+"     Bundle 'python-mode/python-mode'
+"   endif
+" endif
 
 " Don't install jedi-vim on UCL clusters
 if has("unix")
