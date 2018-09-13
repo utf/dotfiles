@@ -120,6 +120,7 @@ nnoremap <silent> <C-h> :nohl<CR><C-l>
 
 " Enable mouse in insert and normal mode
 set mouse=vin
+set ttymouse=xterm2
 
 " Create an empty line underneath without moving the cursor
 noremap <CR> mlo<Esc>`l
@@ -220,3 +221,6 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
+
+" don't show python3 deprecation warnings
+silent! py3 pass
