@@ -4,9 +4,9 @@ function git_dirty
      end
 
      if test "git status --porcelain" = ""
-       echo "("(set_color green)(git_prompt_info)(set_color normal)")"
+       echo " ("(set_color green)(git_prompt_info)(set_color normal)")"
      else
-       echo "("(set_color yellow)(git_prompt_info)(set_color normal)")"
+       echo " ("(set_color yellow)(git_prompt_info)(set_color normal)")"
    end
 end
 
@@ -17,5 +17,5 @@ end
 
 
 function fish_prompt
-    echo (prompt_pwd) (git_dirty) '› '
+    echo $cluster in (prompt_pwd)(git_dirty) '› '
 end

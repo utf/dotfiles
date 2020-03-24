@@ -18,5 +18,5 @@ if type --quiet "fundle"
 end
 
 if type --quiet "bass"
-  bass source $HOME/.dotfiles/bash/bashrc.symlink
+  bass source $HOME/.dotfiles/bash/bashrc.ext.symlink
 end
