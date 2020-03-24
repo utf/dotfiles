@@ -14,7 +14,6 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'tpope/vim-surround'
 Bundle 'skwp/vim-rspec'
 Bundle 'StanAngeloff/php.vim'
-Plugin 'vim-syntastic/syntastic'
 Plugin 'ctrlpvim/ctrlp.vim'
 
 " Python specific packages
@@ -30,11 +29,30 @@ Plugin 'vim-python/python-syntax'
 "   endif
 " endif
 
-" Don't install jedi-vim on UCL clusters
+" Don't install jedi-vim on UCL and NERSC clusters
 if has("unix")
   let s:uname = system("echo -n ${cluster}")
-  if !v:shell_error && s:uname != "ucl"
+  if !v:shell_error && s:uname != "ucl" && s:uname !="nersc"
     Plugin 'davidhalter/jedi-vim'
+  endif
+endif
+
+" Don't install syntastic on NERSC clusters
+if has("unix")
+  let s:uname = system("echo -n ${cluster}")
+  if !v:shell_error && s:uname !="nersc"
+    Plugin 'vim-syntastic/syntastic'
+
+    " Syntastic settings (requires Flake8 for python)
+    set statusline+=%#warningmsg#
+    set statusline+=%{SyntasticStatuslineFlag()}
+    set statusline+=%*
+
+    let g:syntastic_always_populate_loc_list = 1
+    let g:syntastic_auto_loc_list = 1
+    let g:syntastic_check_on_open = 0
+    let g:syntastic_check_on_wq = 0
+
   endif
 endif
 
@@ -121,6 +139,7 @@ nnoremap <silent> <C-h> :nohl<CR><C-l>
 
 " Enable mouse in insert and normal mode
 set mouse=vin
+set ttymouse=xterm2
 
 " Create an empty line underneath without moving the cursor
 noremap <CR> mlo<Esc>`l
@@ -209,15 +228,8 @@ au BufNewFile,BufRead *.py
     \ set fileformat=unix |
 let g:python_highlight_all = 1
 
-" Syntastic settings (requires Flake8 for python)
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
 " show filename in status bar
 set statusline+=%f
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
+" don't show python3 deprecation warnings
+silent! py3 pass
