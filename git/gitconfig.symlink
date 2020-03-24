@@ -1,20 +1,23 @@
 [hub]
-    protocol = ssh
+  protocol = ssh
 [user]
   name = Alex Ganose
   email = alexganose@googlemail.com
 [alias]
+  a = add
+  ca = commit -a
+  cam = commit -am
   co = checkout
   lol = log --graph --decorate --pretty=oneline --abbrev-commit --all --color
 [color]
-    diff = auto
-    status = auto
-    branch = auto
-    ui = true
+  diff = auto
+  status = auto
+  branch = auto
+  ui = true
 [core]
-    excludesfile = ~/.gitignore
-    editor = vim -f
+  excludesfile = ~/.gitignore
+  editor = vim -f
 [help]
-    autocorrect = 1
+  autocorrect = 1
 [credential]
-	helper = osxkeychain
+  helper = osxkeychain

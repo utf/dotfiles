@@ -3,11 +3,6 @@ Dotfiles
 
 My dotfiles.
 
-On OS X, you will need to add the following to `.bash_profile`
-
-```
-[[ -s ~/.bashrc ]] && source ~/.bashrc
-```
 
 Installation
 -----------
@@ -19,6 +14,12 @@ git clone --recursive git@github.com:utf/dotfiles.git
 mv dotfiles .dotfiles
 cd .dotfiles
 rake
+```
+
+Add the following to `.bash_profile` (mac) or `.bashrc` (linux). *Skip this step on NERSC clusters.*
+
+```
+[[ -s ~/.bashrc.ext ]] && source ~/.bashrc.ext
 ```
 
 To install all `vim` plugins, open vim, then type: `:VundleInstall`
