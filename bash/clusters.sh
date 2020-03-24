@@ -6,5 +6,4 @@ if [[ "${cluster}" == "ucl" ]]; then
 
 elif [[ "${cluster}" == "donut" ]]; then
   export DISPLAY="localhost:0.0"
-
 fi

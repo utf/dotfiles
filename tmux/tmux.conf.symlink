@@ -1,4 +1,4 @@
-set -g default-command "bash"
+#set -g default-command "zsh"
 
 set -g mouse on
 
@@ -13,7 +13,7 @@ bind -T copy-mode-vi y send-keys -X copy-selection
 bind -T copy-mode-vi Escape send-keys -X cancel
 
 # remap prefix to Control + a
-set -g prefix C-a
+set -g prefix C-space
 unbind C-b
 bind C-a send-prefix
 
@@ -25,5 +25,19 @@ bind r source-file ~/.tmux.conf
 unbind ^A
 bind ^A select-pane -t :.+
 
-# load mac only changes
-if-shell 'test "$(uname)" = "Darwin"' 'source ${DPATH}/tmux/tmux-osx.conf'
+set -g status 'on'
+set -g status-bg 'colour8'
+set -g status-left-length '100'
+set -g status-right-length '50'
+set -g message-style fg='colour8',bg='colour12'
+set -g message-command-style fg='colour8',bg='colour12'
+set -g pane-border-style fg='colour238'
+set -g pane-active-border-style fg='colour2'
+setw -g window-status-activity-style fg='colour1',bg='colour8',none
+setw -g window-status-separator ''
+setw -g window-status-style fg='colour14',bg='colour8',none
+
+set -g status-left '#[fg=colour8,bg=colour2] #S #[bg=colour8] '
+set -g status-right '#[fg=colour2,bg=colour8] %r — %a — %Y | #H #[bg=colour8,fg=colour2]| #($ZSH/bin/battery-status)'
+setw -g window-status-format '#[bg=colour10,fg=colour8] #I-#W '
+setw -g window-status-current-format '#[fg=colour8,bg=colour12] #I-#W '
