@@ -29,18 +29,18 @@ Plugin 'vim-python/python-syntax'
 "   endif
 " endif
 
-" Don't install jedi-vim on UCL and NERSC clusters
+" Don't install jedi-vim on UCL, NERSC, and lawrencium clusters
 if has("unix")
   let s:uname = system("echo -n ${cluster}")
-  if !v:shell_error && s:uname != "ucl" && s:uname !="nersc"
+  if !v:shell_error && s:uname != "ucl" && s:uname !="nersc" && s:uname !="lrc"
     Plugin 'davidhalter/jedi-vim'
   endif
 endif
 
-" Don't install syntastic on NERSC clusters
+" Don't install syntastic on NERSC and lawrencium clusters
 if has("unix")
   let s:uname = system("echo -n ${cluster}")
-  if !v:shell_error && s:uname !="nersc"
+  if !v:shell_error && s:uname !="nersc" && s:uname !="lrc"
     Plugin 'vim-syntastic/syntastic'
 
     " Syntastic settings (requires Flake8 for python)
@@ -56,8 +56,14 @@ if has("unix")
   endif
 endif
 
-" vim-scripts repos
-Bundle 'rubycomplete.vim'
+" Don't install rubcycomplete on lawrencium
+" because vim isn't compiled with ruby...
+if has("unix")
+  let s:uname = system("echo -n ${cluster}")
+  if !v:shell_error && s:uname !="lrc"
+    Bundle 'rubycomplete.vim'
+  endif
+endif
 Bundle 'std_c.zip'
 
 " non github repos

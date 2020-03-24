@@ -24,6 +24,8 @@ case $(hostname) in
     export cluster="donut";;
   cori*|edison*)
     export cluster="nersc";;
+  *scs*)
+    export cluster="lrc";;
   *)
     export cluster="unknown";;
 esac
