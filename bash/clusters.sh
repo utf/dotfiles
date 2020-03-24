@@ -6,8 +6,6 @@ if [[ "${cluster}" == "ucl" ]]; then
 
 elif [[ "${cluster}" == "donut" ]]; then
   export DISPLAY="localhost:0.0"
-
 elif [[ "${cluster}" == "nersc" ]]; then
   module load python/3.6-anaconda-5.2
-
 fi

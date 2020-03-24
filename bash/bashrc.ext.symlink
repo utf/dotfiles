@@ -24,6 +24,8 @@ case $(hostname) in
     export cluster="donut";;
   cori*|edison*)
     export cluster="nersc";;
+  *scs*)
+    export cluster="lrc";;
   *)
     export cluster="unknown";;
 esac
@@ -34,7 +36,7 @@ if [[ -a "${HOME}/.localrc" ]]; then
   source "${HOME}/.localrc"
 fi
 
-# source every .zsh file in this rep
+# source every .sh file in this rep
 for config_file in "${DPATH}"/*/*.sh; do source "${config_file}"; done
 
 # initialize autocomplete here

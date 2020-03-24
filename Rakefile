@@ -32,6 +32,34 @@ task :install do
     end
     `ln -s "$PWD/#{linkable}" "#{target}"`
   end
+
+  # handle fish separately
+  fish_files = Dir.glob('fish/**.fish')
+  fish_files += Dir.glob('fish/*/*.fish')
+
+  fish_files.each do |fish_file|
+    overwrite = false
+    backup = false
+
+    target = "#{ENV["HOME"]}/.config/#{fish_file}"
+    if File.exists?(target)
+       unless skip_all || overwrite_all || backup_all
+         puts "File already exists: #{target}, what do you want to do? [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all"
+         case STDIN.gets.chomp
+         when 'o' then overwrite = true
+         when 'b' then backup = true
+         when 'O' then overwrite_all = true
+         when 'B' then backup_all = true
+         when 'S' then skip_all = true
+         when 's' then next
+         end
+       end
+       FileUtils.rm_rf(target) if overwrite || overwrite_all
+       `mv "#{target}" "#{target}.backup"` if backup || backup_all
+     end
+    `ln -s "$PWD/#{fish_file}" "#{target}"`
+  end
+
 end
 
 task :uninstall do
@@ -48,7 +76,7 @@ task :uninstall do
 
     # Replace any backups made during installation
     if File.exists?("#{ENV["HOME"]}/.#{file}.backup")
-      `mv "$HOME/.#{file}.backup" "$HOME/.#{file}"` 
+      `mv "$HOME/.#{file}.backup" "$HOME/.#{file}"`
     end
 
   end
