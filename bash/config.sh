@@ -49,5 +49,5 @@ if ! shopt -oq posix; then
 fi
 
 # makes default folder permission 755
-umask 022
+umask 007
 
