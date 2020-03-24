@@ -1,11 +1,9 @@
 function git_dirty
-    if not string length -q -- git status -s &> /dev/null
+    if string length -q -- (git status -s &> /dev/null)
          echo ""
-    end
-
-     if not string length -q --  git status --porcelain
+    else if not string length -q -- (git status --porcelain 2> /dev/null)
        echo " ("(set_color green)(git_prompt_info)(set_color normal)")"
-     else
+    else
        echo " ("(set_color yellow)(git_prompt_info)(set_color normal)")"
    end
 end
