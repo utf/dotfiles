@@ -56,11 +56,11 @@ if has("unix")
   endif
 endif
 
-" Don't install rubcycomplete on lawrencium
+" Don't install rubcycomplete on lawrencium, archer2
 " because vim isn't compiled with ruby...
 if has("unix")
   let s:uname = system("echo -n ${cluster}")
-  if !v:shell_error && s:uname !="lrc"
+  if !v:shell_error && s:uname !="lrc" && s:uname !="archer"
     Bundle 'rubycomplete.vim'
   endif
 endif

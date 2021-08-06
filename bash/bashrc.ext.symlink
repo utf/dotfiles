@@ -16,7 +16,7 @@ esac
 case $(hostname) in
   mbp)
     export cluster="mbp";;
-  eslogin0*|archer*)
+  eslogin0*|archer*|*uan*)
     export cluster="archer";;
   login0*|node-*)
     export cluster="ucl";;
