@@ -1,7 +1,7 @@
 if [[ "${cluster}" == "mbp" ]]; then
-  export PATH="${HOME}/bin:$DPATH/bin:$PATH"
+  export PATH="${HOME}/dev/bin:$DPATH/bin:$PATH"
   export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
-  export FW_CONFIG_FILE="${HOME}/dev/atomate/config/FW_config.yaml"
+  export FW_CONFIG_FILE="${HOME}/dev/etc/atomate/FW_config.yaml"
 elif [[ "${cluster}" == "ucl" ]]; then
   export PATH="${HOME}/bin/tools:${HOME}/src/vaspup/bin:${PATH}"
   export PYTHONPATH="${HOME}/src/sauce:${PYTHONPATH}"

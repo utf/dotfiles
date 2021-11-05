@@ -1,5 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =9
+let g:netrw_dirhistcnt =1
+let g:netrw_dirhist_1='/Users/alex/Downloads/vasp.6.2.1/build'
+let g:netrw_dirhist_0='/Users/alex/.local'
 let g:netrw_dirhist_9='/Users/alex/.config/fish/conf.d'
 let g:netrw_dirhist_8='/Users/alex/.dotfiles/fish'
 let g:netrw_dirhist_7='/Users/alex/.dotfiles'
@@ -8,4 +10,3 @@ let g:netrw_dirhist_5='/Users/alex/.dotfiles/fish'
 let g:netrw_dirhist_4='/Users/alex/.dotfiles'
 let g:netrw_dirhist_3='/Users/alex/.dotfiles/functions'
 let g:netrw_dirhist_2='/Users/alex/.dotfiles/zsh'
-let g:netrw_dirhist_1='/Users/alex/.dotfiles'

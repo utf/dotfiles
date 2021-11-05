@@ -1,5 +1,5 @@
-[hub]
-  protocol = ssh
+#[hub]
+#  protocol = ssh
 [user]
   name = Alex Ganose
   email = alexganose@googlemail.com

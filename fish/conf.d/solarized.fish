@@ -66,3 +66,29 @@ set -g __fish_git_prompt_color_branch      $rgb_cyan
 set -g __fish_git_prompt_color_dirtystate  $rgb_base3
 set -g __fish_git_prompt_color_stagedstate $rgb_green
 set -g __fish_git_prompt_color_upstream    $rgb_cyan
+
+
+set -g fish_color_normal $base0
+set -g fish_color_command $base0
+set -g fish_color_quote $cyan
+set -g fish_color_redirection $base0
+set -g fish_color_end $base0
+set -g fish_color_error $red
+set -g fish_color_param $blue
+set -g fish_color_comment $base01
+set -g fish_color_match       $cyan
+set -g fish_color_search_match "--background=$base02"
+set -g fish_color_operator    $orange
+set -g fish_color_escape      $cyan
+set -g fish_color_history_current --bold
+set -g fish_color_cwd green
+set -g fish_color_cwd_root red
+set -g fish_color_valid_path
+set -g fish_color_autosuggestion 586e75
+set -g fish_color_user brgreen
+set -g fish_color_host normal
+set -g fish_color_cancel -r
+set -g fish_pager_color_completion white --underline
+set -g fish_pager_color_description $rgb_base1
+set -g fish_pager_color_prefix normal
+set -g fish_pager_color_progress orange --background=cyan

@@ -1,5 +1,5 @@
-function tcori
+function fdtn
   set secret (mfagen)
   set pass (security find-generic-password -a $USER -s nersc_pass -w)
-  sshpass -p$pass$secret scp $argv[1] alexg@cori.nersc.gov:$argv[2]
+  sshpass -p$pass$secret scp alexg@dtn03.nersc.gov:$argv[1] $argv[2]
 end
