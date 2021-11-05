@@ -2,13 +2,16 @@ export CLICOLOR=true
 export GREP_OPTIONS='--color=auto'
 export EDITOR='vim'
 
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
-HISTCONTROL=ignoreboth
 
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=10000
 SAVEHIST=10000
+if [[ "${cluster}" != "archer" ]]; then
+  # Archer2 disables these settings
+  # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+  HISTSIZE=10000
+  # don't put duplicate lines or lines starting with space in the history.
+  # See bash(1) for more options
+  HISTCONTROL=ignoreboth
+fi
 
 if [[ -x "$(which dircolors 2> /dev/null)" ]]; then
   eval `dircolors ${HOME}/.dircolors`
