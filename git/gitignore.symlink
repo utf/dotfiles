@@ -6,5 +6,3 @@
 .idea
 *.egg-info
 *__pycache__*
-pawpyseed/core/pawpyc.c
-pawpyseed/core/tests/testc.c

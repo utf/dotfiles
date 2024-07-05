@@ -2,7 +2,7 @@
 #  protocol = ssh
 [user]
   name = Alex Ganose
-  email = alexganose@googlemail.com
+  email = alexganose@gmail.com
 [alias]
   a = add
   ca = commit -a

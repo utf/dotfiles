@@ -7,68 +7,11 @@ call vundle#rc()
 " required!
 Bundle 'gmarik/vundle'
 " My Bundles here:
-" original repos on github
-Bundle 'tpope/vim-ragtag'
-Bundle 'tpope/vim-haml'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'tpope/vim-surround'
-Bundle 'skwp/vim-rspec'
-Bundle 'StanAngeloff/php.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
-
-" Python specific packages
-Plugin 'vim-scripts/indentpython.vim'
 Plugin 'vim-python/python-syntax'
-
-" OSX only plugins (commenting this out for now as editing large functions is
-" incredibly slow)
-" if has("unix")
-"   let s:uname = system("echo -n \"$(uname)\"")
-"   if !v:shell_error && s:uname == "Darwin"
-"     Bundle 'python-mode/python-mode'
-"   endif
-" endif
-
-" Don't install jedi-vim on UCL, NERSC, and lawrencium clusters
-if has("unix")
-  let s:uname = system("echo -n ${cluster}")
-  if !v:shell_error && s:uname != "ucl" && s:uname !="nersc" && s:uname !="lrc"
-    Plugin 'davidhalter/jedi-vim'
-  endif
-endif
-
-" Don't install syntastic on NERSC and lawrencium clusters
-if has("unix")
-  let s:uname = system("echo -n ${cluster}")
-  if !v:shell_error && s:uname !="nersc" && s:uname !="lrc"
-    Plugin 'vim-syntastic/syntastic'
-
-    " Syntastic settings (requires Flake8 for python)
-    set statusline+=%#warningmsg#
-    set statusline+=%{SyntasticStatuslineFlag()}
-    set statusline+=%*
-
-    let g:syntastic_always_populate_loc_list = 1
-    let g:syntastic_auto_loc_list = 1
-    let g:syntastic_check_on_open = 0
-    let g:syntastic_check_on_wq = 0
-
-  endif
-endif
-
-" Don't install rubcycomplete on lawrencium, archer2
-" because vim isn't compiled with ruby...
-if has("unix")
-  let s:uname = system("echo -n ${cluster}")
-  if !v:shell_error && s:uname !="lrc" && s:uname !="archer"
-    Bundle 'rubycomplete.vim'
-  endif
-endif
 Bundle 'std_c.zip'
 
 " non github repos
-" BundleInstall(!)    - install(update) bundles)
-
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
@@ -99,13 +42,8 @@ set scrolloff=4
 set nofoldenable
 set timeoutlen=200 " set timeout between key sequences
 set encoding=utf-8
-
-" set background=dark"
 set background=dark
-
-" Keep swap files in one of these
 set directory=~/tmp,/var/tmp,/tmp,.
-
 
 " Per file-type indentation
 autocmd BufEnter *.js  set softtabstop=4|set shiftwidth=4
@@ -115,7 +53,6 @@ autocmd BufEnter *.h   set shiftwidth=4|set expandtab
 " Better search
 set hlsearch
 set incsearch
-
 
 " File-type
 filetype on
@@ -164,37 +101,15 @@ set t_Co=256
 syntax enable
 
 set background=dark
-" solarized options
 
 " Solarized stuff
 let g:solarized_termtrans = 1
 set background=dark
 colorscheme solarized
 
-
-function! CleverTab()
-   if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
-      return "\<Tab>"
-   else
-      return "\<C-N>"
-
-endfunction
-inoremap <Tab> <C-R>=CleverTab()<CR>
-
-" Highlight jquery better
-au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
-
-" Work with better ragtag bindings
-let g:ragtag_global_maps = 1
-
 " Auto close html tags
 "imap </ <C-x>/
 let mapleader = ','
-
-" Open current file in safari from vim
-:map <Leader>o :!open -a Safari %<CR><CR>
-inoremap <leader>; <C-o>A;<C-o>o
-inoremap <leader><Return> <C-o>o
 
 " Auto indent when starting new line if starting within brackets
 imap <C-Return> <CR><CR><C-o>k<Tab>

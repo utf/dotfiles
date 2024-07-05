@@ -1,4 +1,4 @@
-if [[ ! -z ${COMPNAME} ]]; then
+if [[ -z ${COMPNAME} ]]; then
   nickname="${COMPNAME}"
 elif [[ "${cluster}" == "mbp" ]]; then
   nickname="mbp"
