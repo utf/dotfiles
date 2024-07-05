@@ -16,8 +16,7 @@ cd .dotfiles
 rake
 ```
 
-Add the following to `.bash_profile` (mac) or `.bashrc` (linux). *Skip this step on NERSC clusters.*
-
+Add the following to `.bash_profile` (mac) or `.bashrc` (linux).
 ```
 [[ -s ~/.bashrc.ext ]] && source ~/.bashrc.ext
 ```
@@ -28,12 +27,4 @@ Lastly, add the following to your ~/.localrc to configure the prompt (and the ba
 
 ```
 COMPNAME=server_name
-```
-
-Requirements
-------------
-
-```
-tmux 2.6+
-flake8 (install by pip)
 ```
