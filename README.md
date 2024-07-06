@@ -7,7 +7,7 @@ My dotfiles.
 Installation
 -----------
 
-For a smooth installation, this repository should be cloned recursively to ensure all submodules are also installed.
+Clone recursively to ensure all submodules are also installed:
 
 ```
 git clone --recursive git@github.com:utf/dotfiles.git
@@ -17,13 +17,17 @@ rake
 ```
 
 Add the following to `.bash_profile` (mac) or `.bashrc` (linux).
+
 ```
 [[ -s ~/.bashrc.ext ]] && source ~/.bashrc.ext
 ```
 
-To install all `vim` plugins, open vim, then type: `:VundleInstall`
+Open vim and run:
+```
+:VundleInstall
+```
 
-Lastly, add the following to your ~/.localrc to configure the prompt (and the backup utilities):
+ Create a ~/.localrc file to configure the prompt:
 
 ```
 COMPNAME=server_name
