@@ -11,8 +11,4 @@ elif [[ "${platform}" == 'osx' ]]; then
   alias ls='ls -G'
 fi
 
-if [[ -x "$(which mvim 2> /dev/null)" ]]; then
-  alias vim='mvim -v'
-else
-  alias vim='vim -b'
-fi
+alias vim='mvim -b'
