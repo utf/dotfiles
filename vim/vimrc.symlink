@@ -1,15 +1,6 @@
 "Vundle
 set nocompatible               " be iMproved
 filetype off                   " required!
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-" let Vundle manage Vundle
-" required!
-Bundle 'gmarik/vundle'
-" My Bundles here:
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'vim-python/python-syntax'
-Bundle 'std_c.zip'
 
 " non github repos
 set tabstop=2
@@ -138,7 +129,7 @@ autocmd FilterWritePre * call TrimWhiteSpace()
 autocmd BufWritePre * call TrimWhiteSpace()
 
 " Python syntax highlighting and formatting
-let python_highlight_all=1
+let g:python_highlight_all = 1
 au BufNewFile,BufRead *.py
     \ set tabstop=4 |
     \ set softtabstop=4 |
@@ -147,7 +138,6 @@ au BufNewFile,BufRead *.py
     \ set expandtab |
     \ set autoindent |
     \ set fileformat=unix |
-let g:python_highlight_all = 1
 
 " show filename in status bar
 set statusline+=%f
