@@ -12,16 +12,6 @@ then
   source ~/.localrc
 fi
 
-# all of our zsh files
-typeset -U config_files
-config_files=($ZSH/**/*.zsh)
-
-# load other config files
-for file in ${config_files}
-do
-  source $file
-done
-
 export LSCOLORS="exfxcxdxbxegedabagacad"
 export CLICOLOR=true
 
@@ -78,12 +68,14 @@ bindkey '^[[3~' delete-char
 bindkey '^?' backward-delete-char
 bindkey '^[^?' backward-kill-word
 
+# use / as delimiter in backward-kill-word to help with directories
+autoload -U select-word-style
+select-word-style bash
+
 # matches case insensitive for lowercase
 zstyle ':completion:*' matcher-list 'r:|=*' 'l:|=* r:|=*'
 autoload -Uz compinit
 compinit
-
-unset config_files
 
 # Better history
 # Credits to https://coderwall.com/p/jpj_6q/zsh-better-history-searching-with-arrow-keys
@@ -97,4 +89,12 @@ bindkey "^[[B" down-line-or-beginning-search # Down
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=10"
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-#ZSH_AUTOSUGGEST_HISTORY_IGNORE='(cd|ls|vim) *'
+
+# if on mac assume we have conda and py3 env
+# this is setup upon installation
+if [[ `uname` == "Darwin" ]]; then
+  micromamba activate py3
+fi
+
+# set prompt after activating conda env
+source $ZSH/shell/prompt.zsh
