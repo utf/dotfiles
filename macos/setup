@@ -26,7 +26,7 @@ echo "› macos/install-software"
 $ZSH/macos/install-software.sh
 
 # prevent zsh login messages
-touch .hushlogin
+touch ~/.hushlogin
 
 # Set macOS defaults
 $ZSH/macos/set-defaults.sh
