@@ -2,6 +2,10 @@
 # Sets reasonable OS X defaults.
 # Run ./set-defaults.sh and you'll be good to go.
 
+# Hide the doc
+defaults write com.apple.dock autohide -bool true
+defaults write com.apple.dock autohide-delay -float 0
+
 # Set trackpad speed to maximum
 defaults write -g com.apple.trackpad.scaling 3
 
