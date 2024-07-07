@@ -2,7 +2,16 @@
 export ZSH=$HOME/.dotfiles
 
 # your project folder that we can `c [tab]` to
-export PROJECTS=~/Code
+export PROJECTS=~/dev
+
+platform="unknown"
+unamestr=$(uname)
+case $(uname) in
+  "Linux")
+    export platform="linux";;
+  "Darwin")
+    export platform="osx";;
+esac
 
 # Stash your environment variables in ~/.localrc. This means they'll stay out
 # of your main dotfiles repository (which may be public, like this one), but
@@ -98,3 +107,6 @@ fi
 
 # set prompt after activating conda env
 source $ZSH/shell/prompt.zsh
+
+source $ZSH/shell/config.sh
+

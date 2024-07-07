@@ -1,5 +1,5 @@
 alias tmux="tmux -2"
-alias dut="du -h . --max-depth=1"
+alias dut="du -h --max-depth=1 . "
 alias du="du -h"
 
 if [[ "${platform}" == 'linux' ]]; then
@@ -11,7 +11,6 @@ fi
 export CLICOLOR=true
 export GREP_OPTIONS='--color=auto'
 export EDITOR='vim'
-
 
 if [[ -x "$(which dircolors 2> /dev/null)" ]]; then
   eval `dircolors ${HOME}/.dircolors`
