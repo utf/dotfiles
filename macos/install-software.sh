@@ -2,6 +2,8 @@
 #
 # This installs some of the common software available on Homebrew.
 
+export ZSH=$HOME/.dotfiles
+
 for soft in tmux reattach-to-user-namespace grc zsh-autosuggestions cmake gcc gfortran micromamba; do
   # only install if not already present
   brew list $soft >/dev/null 2>&1 || brew install $soft
@@ -32,7 +34,7 @@ if [[ ! -d "/Applications/iTerm.app" ]]; then
   brew install --cask iterm2
 
   # install configuration file
-  cp ../iterm/com.googlecode.iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist
+  cp $ZSH/iterm/com.googlecode.iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist
 fi
 
 if [[ ! -d "/Applications/Visual Studio Code.app" ]]; then
@@ -51,7 +53,7 @@ if [[ ! -d "/Applications/Rectangle.app" ]]; then
 
   # install configuration file
   mkdir ~/Library/Application\ Support/Rectangle
-  cp ../rectangle/RectangleConfig.json ~/Library/Application\ Support/Rectangle/RectangleConfig.json
+  cp $ZSH/rectangle/RectangleConfig.json ~/Library/Application\ Support/Rectangle/RectangleConfig.json
   # launch rectangle for the first time and set permissions
   echo "  Launching Rectangle, make sure to configure the permissions."
   /Applications/Rectangle.app/Contents/MacOS/Rectangle
