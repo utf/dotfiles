@@ -1,0 +1,32 @@
+#!/bin/sh
+#
+# Handles installation, updates, things like that. Run it periodically
+# to make sure you're on the latest and greatest.
+
+set -e
+
+export ZSH=$HOME/.dotfiles
+
+# Update dotfiles themselves
+echo "› git pull"
+git -C $ZSH pull
+
+# Install homebrew
+$ZSH/macos/install-homebrew.sh 2>&1
+
+# Upgrade homebrew
+echo "› brew update"
+brew update
+
+echo "› brew upgrade"
+brew upgrade
+
+# Install software
+echo "› macos/install-software"
+$ZSH/macos/install-software.sh
+
+# prevent zsh login messages
+touch .hushlogin
+
+# Set macOS defaults
+$ZSH/macos/set-defaults.sh

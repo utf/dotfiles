@@ -1,27 +1,36 @@
-Dotfiles
---------
+# Dotfiles
 
-My dotfiles.
+My dotfiles. Running the bootstrap script on mac will also install default software including:
+
+- Homebrew
+- TextMate
+- iTerm2
+- Microsoft Office
+- Visual Studio Code
+- Slack
+- Rectangle
 
 
-Installation
------------
+## Installation
 
 ```
 git clone git@github.com:utf/dotfiles.git
 mv dotfiles .dotfiles
-cd .dotfiles
-rake
+.dotfiles/bin/bootstrap
 ```
 
-Add the following to `.bash_profile` (mac) or `.bashrc` (linux).
+### MacOS
+
+Add the following to `.zshrc`:
 
 ```
-[[ -s ~/.bashrc.ext ]] && source ~/.bashrc.ext
+source ~/.zshrc.ext
 ```
 
-Create a ~/.localrc file to configure the prompt:
+### Linux
+
+Add the following to `.bashrc`:
 
 ```
-COMPNAME=server_name
+source ~/.bashrc.ext
 ```

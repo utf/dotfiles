@@ -1,8 +1,8 @@
 #[hub]
 #  protocol = ssh
 [user]
-  name = Alex Ganose
-  email = alexganose@gmail.com
+  name = AUTHORNAME
+  email = AUTHOREMAIL
 [alias]
   a = add
   ca = commit -a
@@ -20,6 +20,6 @@
 [help]
   autocorrect = 1
 [credential]
-  helper = osxkeychain
+  helper = GIT_CREDENTIAL_HELPER
 [pull]
   rebase = false
