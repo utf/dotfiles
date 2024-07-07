@@ -102,7 +102,11 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 # if on mac assume we have conda and py3 env
 # this is setup upon installation
 if [[ `uname` == "Darwin" ]]; then
-  micromamba activate py3
+  if type conda > /dev/null; then
+    conda activate py3
+  else
+    micromamba activate py3
+  fi
 fi
 
 # set prompt after activating conda env
